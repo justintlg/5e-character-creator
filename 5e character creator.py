@@ -54,6 +54,7 @@ def rollmydice():
     final = sum(arranged)
     return final
 
+#this function updates a section of the widget live based on user input to see their stat selection
 def your_stats(event):
     stats_selected.config(text= f'You selected {chosen_method.get()}\n{ability_scores()}')
 
@@ -73,7 +74,8 @@ def ability_scores():
             count += 1
         rolled_stats = sorted(rolls, reverse= True)
         return f'Your pre-bonus stats are\n{rolled_stats}'
-    #elif chosen_method.get() == 'Point-Buy':
+    elif chosen_method.get() == 'Point-Buy':
+        return 'Work in progress'
     elif chosen_method.get() == 'Other':
         return 'This means you and your DM/GM will figure out your stats some other way'
 
@@ -152,7 +154,7 @@ def app_window():
     stats_selected.pack()
     stats_options.bind('<<ComboboxSelected>>', your_stats)
 #a summary of the current state of the character
-    char_sofar = tk.Label(frame2, text= 'Here is your character so far!')
+    char_sofar = tk.Label(frame2, text= 'Here is your character so far!\nWork in progress')
     char_sofar.pack()
 #waits for user interaction (event loop)
     root.mainloop()
